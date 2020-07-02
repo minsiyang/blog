@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+    def index
+      @articles = Article.all
+    end
+
     def show
       @article = Article.find(params[:id])
     end
-
-  def new
-  end
 
   def create
     # saving the params hash from the form input into article model as an instance
