@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     def index
       @articles = Article.all
     end
-
+# show only the article it finds with the associate id
     def show
       @article = Article.find(params[:id])
     end
@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     def new
       @article = Article.new
     end
-
+    # get request to render edit form
     def edit
       @article = Article.find(params[:id])
     end
@@ -25,10 +25,10 @@ class ArticlesController < ApplicationController
         render 'new'
       end
     end
-
+# Post route, follow by Edit action
     def update
       @article = Article.find(params[:id])
-     
+# if statement to validate whether the update is able to enter database     
       if @article.update(article_params)
         redirect_to @article
       else
