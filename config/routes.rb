@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   # resources method can be use to declare a standard REST resource.
 
   root 'welcome#index'
