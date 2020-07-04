@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+#   only authenticated users can delete comments
+  http_basic_authenticate_with name: "dhh", password: "secret", 
+  only: :destroy
+  
   def create
     # find the aritcle id from comment db
     @article = Article.find(params[:article_id])
